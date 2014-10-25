@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: CodFront Tags
-Version: 1.0.1
+Version: 1.0
 Description: Widget which displays tags
 */
 
 define("DefNoOfPosts", "20"); // default number of tags to show
-define("CODFRONT_PACK_VERSION", "1.0.1"); // plugin version
+define("CODFRONT_PACK_VERSION", "1.0"); // plugin version
 
 class CodFront_TagsTagCloudWidget extends WP_Widget {
 
