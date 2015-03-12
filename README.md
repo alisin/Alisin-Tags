@@ -1,4 +1,4 @@
-СodFront Tags
+Alisin Tags
 =============
 
 Plugin for WordPress. Widget which displays sliding tags.
