@@ -9,7 +9,7 @@
 .tagscloud ul li { padding: 0; }
 
 
-.tagscloud .codfront-tag {
+.tagscloud .sliding-tag {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
@@ -30,14 +30,14 @@
 }
 
 
-.tagscloud .codfront-tag:hover {
+.tagscloud .sliding-tag:hover {
     cursor: pointer;
 }
-.tagscloud .codfront-tag:active {
+.tagscloud .sliding-tag:active {
     top: 1px;
 }
 
-.tagscloud .codfront-tag span {
+.tagscloud .sliding-tag span {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
@@ -50,7 +50,7 @@
     float: left;
     margin-top: 0px;
 }
-.tagscloud .codfront-tag .tag_name {
+.tagscloud .sliding-tag .tag_name {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
@@ -62,7 +62,7 @@
     z-index: 10;
 }
 
-.tagscloud .codfront-tag .tag_count {
+.tagscloud .sliding-tag .tag_count {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
@@ -82,7 +82,7 @@
 .tagscloud { padding: 0 0 0px; }
 .tagscloud ul { display: inline-block; padding: 0; margin: 0; }
 .tagscloud ul li { float: left; }
-.tagscloud .codfront-tag {
+.tagscloud .sliding-tag {
     font-size: 14px;
     display: block;
     line-height: .8;
