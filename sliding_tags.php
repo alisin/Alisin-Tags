@@ -1,18 +1,18 @@
 <?php
 /*
-Plugin Name: CodFront Tags
+Plugin Name: Sliding Tags
 Version: 1.0
 Description: Widget which displays tags
 */
 
-define("DefNoOfPosts", "20"); // default number of tags to show
+define("NUMBERTAGS", "20"); // default number of tags to show
 define("CODFRONT_PACK_VERSION", "1.0"); // plugin version
 
-class CodFront_TagsTagCloudWidget extends WP_Widget {
+class Sliding_TagsTagCloudWidget extends WP_Widget {
 
-	function CodFront_TagsTagCloudWidget()
+	function Sliding_TagsTagCloudWidget()
 	{
-		parent::WP_Widget( false, 'CodFront Tags',  array('description' => 'CodFront Tags Widget') );
+		parent::WP_Widget( false, 'Sliding Tags',  array('description' => 'Sliding Tags Widget') );
 	}
 
 	function widget($args, $instance)
@@ -21,7 +21,7 @@ class CodFront_TagsTagCloudWidget extends WP_Widget {
 		$title = empty( $instance['title'] ) ? '' : $instance['title'];
 		echo $args['before_widget'];
 		echo $args['before_title'] . $title . $args['after_title'];
-		echo $CodFront_TagsTagCloud->GetCodFront_TagsTagCloud(  empty( $instance['ShowPosts'] ) ? DefNoOfPosts : $instance['ShowPosts'], empty( $instance['ColorsArray'] ) ? "#0033CC, #000000, #00FFFF, #FF3300, #C2C2A3, #CC0098, #990033, maroon, #6600FF, #009932, #FFCCCC, #006666, #336600, #66FF32, #999966, #996633" : $instance['ColorsArray'] );
+		echo $CodFront_TagsTagCloud->GetCodFront_TagsTagCloud(  empty( $instance['ShowPosts'] ) ? NUMBERTAGS : $instance['ShowPosts'], empty( $instance['ColorsArray'] ) ? "#0033CC, #000000, #00FFFF, #FF3300, #C2C2A3, #CC0098, #990033, maroon, #6600FF, #009932, #FFCCCC, #006666, #336600, #66FF32, #999966, #996633" : $instance['ColorsArray'] );
 		echo $args['after_widget'];
 	}
 
@@ -46,9 +46,9 @@ class CodFront_TagsTagCloudWidget extends WP_Widget {
 
 }
 
-class CodFront_TagsTagCloud {
+class Sliding_TagsTagCloud {
 
-	function GetCodFront_TagsTagCloud($noofposts, $colorsarray)
+	function GetSliding_TagsTagCloud($noofposts, $colorsarray)
 	{
 
 		?>
@@ -70,9 +70,9 @@ class CodFront_TagsTagCloud {
 	}
 }
 
-$CodFront_TagsTagCloud = new CodFront_TagsTagCloud();
+$Sliding_TagsTagCloud = new Sliding_TagsTagCloud();
 
-function codfront_frontend_scripts()
+function sliding_frontend_scripts()
 {
 	wp_enqueue_style( 'tags-styles', plugins_url() . '/codfront-tags/assets/css/tags-styles.css');	
 	wp_enqueue_script( 'tags-script',  plugins_url() .'/codfront-tags/assets/js/tags-script.js', array( 'jquery' ), CODFRONT_PACK_VERSION, true );
@@ -80,10 +80,10 @@ function codfront_frontend_scripts()
 
 function CodFront_TagsTagCloud_widgets_init()
 {
-	register_widget('CodFront_TagsTagCloudWidget');
+	register_widget('Sliding_TagsTagCloudWidget');
 	add_action( 'wp_enqueue_scripts', 'codfront_frontend_scripts');
 }
 
-add_action('widgets_init', 'CodFront_TagsTagCloud_widgets_init');
+add_action('widgets_init', 'Sliding_TagsTagCloud_widgets_init');
 
 ?>
