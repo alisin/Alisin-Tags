@@ -35,11 +35,11 @@ class Sliding_TagsTagCloudWidget extends WP_Widget {
 		?>
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php  echo 'Title:'; ?></label>
-			<input type="text" name="<?php echo $this->get_field_name('title'); ?>" class="widefat" id="<?php echo $this->get_field_id('title'); ?>" value="<?php echo esc_attr($instance['title']); ?>" />
+			<input type="text" name="<?php echo $this->get_field_name('title'); ?>" id="<?php echo $this->get_field_id('title'); ?>" value="<?php echo esc_attr($instance['title']); ?>" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('ShowPosts'); ?>"><?php  echo 'Number of Tags to show:'; ?></label>
-			<input type="text" name="<?php echo $this->get_field_name('ShowPosts'); ?>" id="<?php echo $this->get_field_id('ShowPosts'); ?>" value="<?php if ( empty( $instance['ShowPosts'] ) ) { echo esc_attr(DefNoOfPosts); } else { echo esc_attr($instance['ShowPosts']); } ?>" size="3" />
+			<input type="text" name="<?php echo $this->get_field_name('ShowPosts'); ?>" id="<?php echo $this->get_field_id('ShowPosts'); ?>" value="<?php if ( empty( $instance['ShowPosts'] ) ) { echo esc_attr(NUMBERTAGS); } else { echo esc_attr($instance['ShowPosts']); } ?>" size="3" />
 		</p>
 		<?php
 	}
