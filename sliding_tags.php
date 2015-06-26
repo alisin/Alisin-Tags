@@ -1,12 +1,18 @@
 <?php
+/**
+ * @package sliding_tags
+ * @version 2.0
+ */
 /*
 Plugin Name: Sliding Tags
-Version: 1.0
-Description: Widget which displays tags
+Version: 2.0
+Description: Widget which display tags.
+Author: Alexander Lisin
+Author URI: http://alisin.ru/
 */
 
-define("NUMBERTAGS", "20"); // default number of tags to show
-define("CODFRONT_PACK_VERSION", "1.0"); // plugin version
+define("NUMBERTAGS", "10"); // default number of tags to show
+define("VERSION", "2.0"); // plugin version
 
 class Sliding_TagsTagCloudWidget extends WP_Widget {
 
@@ -21,7 +27,7 @@ class Sliding_TagsTagCloudWidget extends WP_Widget {
 		$title = empty( $instance['title'] ) ? '' : $instance['title'];
 		echo $args['before_widget'];
 		echo $args['before_title'] . $title . $args['after_title'];
-		echo $Sliding_TagsTagCloud->GetCodFront_TagsTagCloud(  empty( $instance['ShowPosts'] ) ? NUMBERTAGS : $instance['ShowPosts'], empty( $instance['ColorsArray'] ) ? "#0033CC, #000000, #00FFFF, #FF3300, #C2C2A3, #CC0098, #990033, maroon, #6600FF, #009932, #FFCCCC, #006666, #336600, #66FF32, #999966, #996633" : $instance['ColorsArray'] );
+		echo $Sliding_TagsTagCloud->GetSliding_TagsTagCloud( empty( $instance['ShowPosts'] ) ? NUMBERTAGS : $instance['ShowPosts'] );
 		echo $args['after_widget'];
 	}
 
@@ -48,9 +54,8 @@ class Sliding_TagsTagCloudWidget extends WP_Widget {
 
 class Sliding_TagsTagCloud {
 
-	function GetSliding_TagsTagCloud($noofposts, $colorsarray)
+	function GetSliding_TagsTagCloud($noofposts)
 	{
-
 		?>
 		<?php
 
@@ -62,7 +67,7 @@ class Sliding_TagsTagCloud {
 			$jslink = 'javascript:document.location.href=';
 			$count = $tag->count;
 			$html .= "<li class='{$term->slug}-tag'><a onclick='{$jslink}&apos;{$tag_link}&apos;' href='{$tag_link}' title='{$term->name}' class='sliding-tag'>";
-			$html .= "<span class='tag_name'>{$term->name}</span> <span class='tag_count'>{$term->count}</span></a></li>";
+			$html .= "<span class='tag_name'>{$term->name}</span><span class='tag_count'>{$term->count}</span></a></li>";
 			}
 
 		$html .= '</ul></div>';
@@ -75,7 +80,7 @@ $Sliding_TagsTagCloud = new Sliding_TagsTagCloud();
 function sliding_frontend_scripts()
 {
 	wp_enqueue_style( 'tags-styles', plugins_url() . '/sliding-tags/assets/css/tags-styles.css');	
-	wp_enqueue_script( 'tags-script',  plugins_url() .'/sliding-tags/assets/js/tags-script.js', array( 'jquery' ), CODFRONT_PACK_VERSION, true );
+	wp_enqueue_script( 'tags-script',  plugins_url() .'/sliding-tags/assets/js/tags-script.js', array( 'jquery' ), VERSION, true );
 }
 
 function sliding_TagsTagCloud_widgets_init()
