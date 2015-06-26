@@ -1,37 +1,37 @@
 <?php
 /**
  * @package sliding_tags
- * @version 2.0
+ * @version 1.6
  */
 /*
 Plugin Name: Sliding Tags
-Version: 2.0
-Description: Widget which display tags.
+Version: 1.6
+Description: Sliding Tags Widget.
 Author: Alexander Lisin
 Author URI: http://alisin.ru/
 */
 
-define("NUMBERTAGS", "10"); // default number of tags to show
-define("VERSION", "2.0"); // plugin version
+define("NUMBERTAGS", "20"); // default number of tags to show
+define("VERSION", "1.6"); // plugin version
 
-class Sliding_TagsTagCloudWidget extends WP_Widget {
+class TagsTagCloudWidget extends WP_Widget {
 
-	function Sliding_TagsTagCloudWidget()
+	function TagsTagCloudWidget()
 	{
 		parent::WP_Widget( false, 'Sliding Tags',  array('description' => 'Sliding Tags Widget') );
 	}
 
 	function widget($args, $instance)
 	{
-		global $Sliding_TagsTagCloud;
+		global $TagsTagCloud;
 		$title = empty( $instance['title'] ) ? '' : $instance['title'];
 		echo $args['before_widget'];
 		echo $args['before_title'] . $title . $args['after_title'];
-		echo $Sliding_TagsTagCloud->GetSliding_TagsTagCloud( empty( $instance['ShowPosts'] ) ? NUMBERTAGS : $instance['ShowPosts'] );
+		echo $TagsTagCloud->GetTagsTagCloud( empty( $instance['ShowTags'] ) ? NUMBERTAGS : $instance['ShowTags'] );
 		echo $args['after_widget'];
 	}
 
-	function update($sliding_instance)
+	function update($sliding_instance, $instance)
 	{
 		return $sliding_instance;
 	}
@@ -44,28 +44,25 @@ class Sliding_TagsTagCloudWidget extends WP_Widget {
 			<input type="text" name="<?php echo $this->get_field_name('title'); ?>" id="<?php echo $this->get_field_id('title'); ?>" value="<?php echo esc_attr($instance['title']); ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('ShowPosts'); ?>"><?php  echo 'Number of Tags to show:'; ?></label>
-			<input type="text" name="<?php echo $this->get_field_name('ShowPosts'); ?>" id="<?php echo $this->get_field_id('ShowPosts'); ?>" value="<?php if ( empty( $instance['ShowPosts'] ) ) { echo esc_attr(NUMBERTAGS); } else { echo esc_attr($instance['ShowPosts']); } ?>" size="3" />
+			<label for="<?php echo $this->get_field_id('ShowTags'); ?>"><?php  echo 'Number of Tags to show:'; ?></label>
+			<input type="text" name="<?php echo $this->get_field_name('ShowTags'); ?>" id="<?php echo $this->get_field_id('ShowTags'); ?>" value="<?php if ( empty( $instance['ShowTags'] ) ) { echo esc_attr(NUMBERTAGS); } else { echo esc_attr($instance['ShowTags']); } ?>" size="3" />
 		</p>
 		<?php
 	}
 
 }
 
-class Sliding_TagsTagCloud {
+class TagsTagCloud {
 
-	function GetSliding_TagsTagCloud($noofposts)
+	function GetTagsTagCloud($noofposts)
 	{
-		?>
-		<?php
-
 		$terms = get_tags(array('orderby' => 'count', 'order' => 'DESC', 'number' => $noofposts));
 		$html = '<div class="tagscloud"><ul>';
 
 		foreach ($terms as $term) {
 			$tag_link = get_tag_link($term->term_id);
 			$jslink = 'javascript:document.location.href=';
-			$count = $tag->count;
+			$count = $term->count;
 			$html .= "<li class='{$term->slug}-tag'><a onclick='{$jslink}&apos;{$tag_link}&apos;' href='{$tag_link}' title='{$term->name}' class='sliding-tag'>";
 			$html .= "<span class='tag_name'>{$term->name}</span><span class='tag_count'>{$term->count}</span></a></li>";
 			}
@@ -73,22 +70,22 @@ class Sliding_TagsTagCloud {
 		$html .= '</ul></div>';
 		echo $html;
 	}
+
 }
 
-$Sliding_TagsTagCloud = new Sliding_TagsTagCloud();
+$TagsTagCloud = new TagsTagCloud();
 
-function sliding_frontend_scripts()
+function frontend_scripts()
 {
-	wp_enqueue_style( 'tags-styles', plugins_url() . '/sliding-tags/assets/css/tags-styles.css');	
-	wp_enqueue_script( 'tags-script',  plugins_url() .'/sliding-tags/assets/js/tags-script.js', array( 'jquery' ), VERSION, true );
+	wp_enqueue_style( 'tags-styles', plugins_url() . '/sliding-tags/assets/css/styles.css');	
+	wp_enqueue_script( 'tags-script',  plugins_url() .'/sliding-tags/assets/js/scripts.js', array( 'jquery' ), VERSION, true );
 }
 
-function sliding_TagsTagCloud_widgets_init()
+function TagsTagCloud_widgets_init()
 {
-	register_widget('Sliding_TagsTagCloudWidget');
-	add_action( 'wp_enqueue_scripts', 'sliding_frontend_scripts');
+	register_widget('TagsTagCloudWidget');
+	add_action( 'wp_enqueue_scripts', 'frontend_scripts');
 }
 
-add_action('widgets_init', 'sliding_TagsTagCloud_widgets_init');
-
+add_action('widgets_init', 'TagsTagCloud_widgets_init');
 ?>
