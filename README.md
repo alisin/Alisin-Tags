@@ -1,6 +1,6 @@
 Sliding Tags
 =============
 
-Plugin for WordPress. Widget which displays sliding tags.
+Sliding Tags widget for WordPress.
 
-Design http://drbl.in/bLgb
+[![Imgur](https://d13yacurqjgara.cloudfront.net/users/2823/screenshots/240969/tags_dribbble.jpg)](http://drbl.in/bLgb)
