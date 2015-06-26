@@ -1,0 +1,87 @@
+.tagscloud {
+    display: block;
+    padding: 0 0 40px;
+    position: relative;
+}
+
+.tagscloud ul { list-style: none; }
+
+.tagscloud ul li { padding: 0; }
+
+.tagscloud .sliding-tag {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    background: url("../../assets/images/tag.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #3F3F3F;
+    display: none;
+    float: left;
+    height: 25px;
+    line-height: 1.5;
+    margin: 5px;
+    font-weight: 600;
+    font-style: normal;
+    font-family: "Helvetica Neue","Arial",sans-serif;
+    padding: 0 5px 0 8px;
+    font-size: 12px;
+    position: relative;
+    text-decoration: none;
+}
+
+.tagscloud .sliding-tag:hover {
+    cursor: pointer;
+}
+.tagscloud .sliding-tag:active {
+    top: 1px;
+}
+
+.tagscloud .sliding-tag span {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    display: block;
+    font-style: normal;
+    color: #3F3F3F;
+    font-family: 'open sans', serif;
+    font-size: 13px;
+    font-weight: 600;
+    float: left;
+    margin-top: 0px;
+}
+.tagscloud .sliding-tag .tag_name {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    background: url("../../assets/images/tag.png") no-repeat scroll 100% -25px rgba(0, 0, 0, 0);
+    height: 19px;
+    padding: 6px 10px 0 0;
+    position: relative;
+    text-shadow: 0 1px 1px #FFFFFF;
+    z-index: 10;
+}
+
+.tagscloud .sliding-tag .tag_count {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    background: url("../../assets/images/tag.png") no-repeat scroll 100% -50px rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    height: 19px;
+    padding: 5px 10px 0;
+    line-height: .9;
+    position: absolute;
+    right: 0;
+    text-shadow: 0 -1px 0 #C54A0C;
+    top: 1px;
+    z-index: 5;
+}
+
+
+.tagscloud { padding: 0 0 0px; }
+.tagscloud ul { display: inline-block; padding: 0; margin: 0; }
+.tagscloud ul li { float: left; }
+.tagscloud .sliding-tag {
+    font-size: 14px;
+    display: block;
+    line-height: .8;
+}
