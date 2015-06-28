@@ -77,8 +77,8 @@ $TagsTagCloud = new TagsTagCloud();
 
 function frontend_scripts()
 {
-	wp_enqueue_style( 'tags-styles', plugins_url() . '/sliding-tags/assets/css/styles.css');	
-	wp_enqueue_script( 'tags-script',  plugins_url() .'/sliding-tags/assets/js/scripts.js', array( 'jquery' ), VERSION, true );
+	wp_enqueue_style( 'tags-styles', plugin_dir_url( __FILE__ ) . 'assets/css/styles.css');	
+	wp_enqueue_script( 'tags-script',  plugin_dir_url( __FILE__ ) .'assets/js/scripts.js', array( 'jquery' ), VERSION, true );
 }
 
 function TagsTagCloud_widgets_init()
