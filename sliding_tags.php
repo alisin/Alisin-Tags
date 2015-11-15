@@ -7,7 +7,7 @@
 Plugin Name: Sliding Tags
 Version: 1.8
 Description: Sliding Tags Widget.
-Author: Alexander Lisin
+Author: wpioneer
 Author URI: http://alisin.ru/
 */
 
