@@ -7,8 +7,8 @@
 Plugin Name: Sliding Tags
 Version: 1.0
 Description: Sliding Tags Widget.
-Author: shelepenok
-Author URI: https://github.com/shelepenok
+Author: Alexander Shelepenok
+Author URI: https://github.com/alxshelepenok
 */
 
 define("NUMBERTAGS", "20");
