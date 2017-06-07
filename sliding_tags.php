@@ -1,18 +1,18 @@
 <?php
 /**
- * @package sliding_tags
- * @version 1.8
+ * @package sliding-tags
+ * @version 1.0
  */
 /*
 Plugin Name: Sliding Tags
-Version: 1.8
+Version: 1.0
 Description: Sliding Tags Widget.
-Author: wpioneer
-Author URI: http://alisin.ru/
+Author: shelepenok
+Author URI: https://github.com/shelepenok
 */
 
-define("NUMBERTAGS", "20"); // default number of tags to show
-define("VERSION", "1.8"); // plugin version
+define("NUMBERTAGS", "20");
+define("VERSION", "1.0");
 
 class TagsTagCloudWidget extends WP_Widget {
 
