@@ -1,4 +1,4 @@
-# Sliding Tags
+# sliding-tags
 
 Sliding Tags widget for WordPress.
 
