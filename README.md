@@ -2,14 +2,12 @@
 
 Sliding Tags widget for WordPress.
 
-Demo: http://mikos.co.uk/tags/
-
 [![sliding_tags_wordpress_img](http://i.imgur.com/F5hVeTj.jpg)](http://drbl.in/bLgb)
 
 ## License
 The MIT license.
 
-Copyright (c) 2016 Alexander Shelepenok
+Copyright (c) 2016-2022 Alexander Shelepenok
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
